@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unsent Message</title>
+
+    <!--
+        Written by a 19-year-old,
+        between assignments, bugs, and overthinking.
+    -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #eaeaea;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.55);
+            padding: 45px;
+            border-radius: 18px;
+            max-width: 750px;
+            width: 90%;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+            animation: fadeIn 2s ease;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            margin-bottom: 25px;
+            color: #7dd3fc;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 18px;
+            opacity: 0;
+            animation: slideUp 1.2s ease forwards;
+        }
+
+        p:nth-of-type(1) { animation-delay: 0.8s; }
+        p:nth-of-type(2) { animation-delay: 1.8s; }
+        p:nth-of-type(3) { animation-delay: 2.8s; }
+        p:nth-of-type(4) { animation-delay: 3.8s; }
+
+        .signature {
+            margin-top: 30px;
+            font-size: 1rem;
+            font-style: italic;
+            color: #cbd5e1;
+            opacity: 0;
+            animation: slideUp 1.2s ease forwards;
+            animation-delay: 5s;
+        }
+
+        button {
+            margin-top: 35px;
+            padding: 12px 26px;
+            background: #7dd3fc;
+            border: none;
+            border-radius: 30px;
+            color: #0f172a;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background: #bae6fd;
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating dots (late night thoughts) */
+        .dot {
+            position: absolute;
+            bottom: -10px;
+            width: 6px;
+            height: 6px;
+            background: rgba(125, 211, 252, 0.6);
+            border-radius: 50%;
+            animation: floatUp 7s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-110vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>An Unsent Message</h1>
+
+        <p>
+            I’m 19, first year B.Tech,
+            still figuring out life, code, and myself.
+            Most days are about lectures, deadlines,
+            and pretending I understand what the professor just said.
+        </p>
+
+        <p>
+            Somewhere between debugging code
+            and overthinking at 2 AM,
+            I realized my mind pauses
+            every time you cross it.
+        </p>
+
+        <p>
+            I study Artificial Intelligence and Machine Learning,
+            but no model prepared me for this—
+            the way your presence
+            quietly improves my mood
+            without changing anything else.
+        </p>
+
+        <p>
+            I don’t know if this is love,
+            or just a 19-year-old learning what feelings mean.
+            I just know that if this page found you,
+            it means you mattered more than I planned.
+        </p>
+
+        <div class="signature">
+            — a first-year student,<br>
+            still learning, still hoping
+        </div>
+
+        <button onclick="openThought()">Click when you're curious</button>
+    </div>
+
+    <script>
+        function openThought() {
+            alert(
+                "This isn’t a proposal.\n" +
+                "It’s not a demand.\n\n" +
+                "Just a quiet truth from someone\n" +
+                "who enjoys your existence\n" +
+                "more than he admits."
+            );
+        }
+
+        // Floating thought dots
+        setInterval(() => {
+            const dot = document.createElement("div");
+            dot.classList.add("dot");
+            dot.style.left = Math.random() * 100 + "vw";
+            dot.style.animationDuration = (5 + Math.random() * 4) + "s";
+            document.body.appendChild(dot);
+
+            setTimeout(() => {
+                dot.remove();
+            }, 8000);
+        }, 600);
+    </script>
+
+</body>
+</html>
